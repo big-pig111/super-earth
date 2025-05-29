@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLDIVERS Coin | Super Earth Defense Token</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c1a2d 0%, #1a3a5f 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/2xrUyfP.png') center/cover no-repeat;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .header {
+            background: rgba(10, 20, 35, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #ff8c00;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #ff8c00;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ff8c00, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: #ff8c00;
+            background: rgba(255, 140, 0, 0.1);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(12, 26, 45, 0.8) 0%, rgba(12, 26, 45, 0) 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ff8c00, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 140, 0, 0.15);
+            border: 1px solid #ff8c00;
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, #ff8c00, #ff6a00);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+        }
+        
+        .earth-section {
+            padding: 5rem 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: rgba(8, 18, 33, 0.8);
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff8c00;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #ff8c00, #ffd700);
+        }
+        
+        .war-status {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .city-card {
+            background: rgba(20, 40, 70, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            border: 2px solid;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .city-card.ny {
+            border-color: #1e90ff;
+        }
+        
+        .city-card.sh {
+            border-color: #ff4500;
+        }
+        
+        .city-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ny .city-icon {
+            color: #1e90ff;
+        }
+        
+        .sh .city-icon {
+            color: #ff4500;
+        }
+        
+        .city-name {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .defense-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        
+        .defense-fill {
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        .ny .defense-fill {
+            background: linear-gradient(to right, #1e90ff, #00bfff);
+            width: 78%;
+        }
+        
+        .sh .defense-fill {
+            background: linear-gradient(to right, #ff4500, #ff8c00);
+            width: 82%;
+        }
+        
+        .token-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .token-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .coin {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #ff8c00 0%, #ffd700 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .coin::before {
+            content: "HDC";
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.2);
+            position: absolute;
+        }
+        
+        .coin::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 80%);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .token-details {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .token-specs {
+            background: rgba(20, 40, 70, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+        
+        .community {
+            padding: 5rem 10%;
+            text-align: center;
+            background: rgba(8, 18, 33, 0.8);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-card {
+            background: rgba(20, 40, 70, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 200px;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff8c00;
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.3);
+        }
+        
+        .social-icon {
+            font-size: 3rem;
+            color: #ff8c00;
+            margin-bottom: 1rem;
+        }
+        
+        .social-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: rgba(10, 20, 35, 0.95);
+            padding: 3rem 10% 2rem;
+            text-align: center;
+            border-top: 2px solid #ff8c00;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ff8c00, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .countdown {
+                gap: 0.8rem;
+            }
+            
+            .countdown-item {
+                padding: 1rem;
+                min-width: 80px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+            
+            .war-status {
+                gap: 1.5rem;
+            }
+            
+            .token-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="logo-text">HELLDIVERS COIN</div>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">About Token</a>
+            <a href="#community">Join Community</a>
+            <a href="#war">War Status</a>
+            <a href="https://pump.fun/board" target="_blank">Buy Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>DEFEND SUPER EARTH!</h1>
+        <p>The Illuminate invasion has left only Super New York and Super Shanghai standing. US and Chinese players unite to launch HELLDIVERS Coin (HDC) - the ultimate defense token for Earth's survival!</p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">07</div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">18</div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">24</div>
+                <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">53</div>
+                <div class="countdown-label">SECONDS</div>
+            </div>
+        </div>
+        
+        <p>Time until next Illuminate assault</p>
+        <a href="https://pump.fun/board" class="cta-button" target="_blank">JOIN THE DEFENSE</a>
+    </section>
+
+    <!-- War Status -->
+    <section class="earth-section" id="war">
+        <h2 class="section-title">SUPER EARTH DEFENSE STATUS</h2>
+        <div class="war-status">
+            <div class="city-card ny">
+                <div class="city-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3 class="city-name">SUPER NEW YORK</h3>
+                <p>US Player Stronghold</p>
+                <div class="defense-bar">
+                    <div class="defense-fill"></div>
+                </div>
+                <p>Defense Status: <strong>78%</strong></p>
+                <p>Commander: John "Liberty" Davis</p>
+            </div>
+            
+            <div class="city-card sh">
+                <div class="city-icon">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <h3 class="city-name">SUPER SHANGHAI</h3>
+                <p>Chinese Player Stronghold</p>
+                <div class="defense-bar">
+                    <div class="defense-fill"></div>
+                </div>
+                <p>Defense Status: <strong>82%</strong></p>
+                <p>Commander: Zhang "Dragon" Wei</p>
+            </div>
+        </div>
+        
+        <div class="token-info" id="about">
+            <div class="token-image">
+                <div class="coin"></div>
+            </div>
+            <div class="token-details">
+                <h2 class="section-title">HELLDIVERS COIN (HDC)</h2>
+                <div class="token-specs">
+                    <div class="spec-item">
+                        <span>Token Name:</span>
+                        <span>HELLDIVERS Coin</span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Token Symbol:</span>
+                        <span>HDC</span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Total Supply:</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Blockchain:</span>
+                        <span>Super Earth Chain</span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Token Type:</span>
+                        <span>Community Defense Token</span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Primary Use:</span>
+                        <span>Defense upgrades, War supplies, Player rewards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="community" id="community">
+        <h2 class="section-title">JOIN THE DEFENSE COMMUNITY</h2>
+        <p>US and Chinese players united against the Illuminate threat! Join our community for the latest intel and HDC rewards</p>
+        
+        <div class="social-links">
+            <div class="social-card">
+                <div class="social-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <div class="social-name">Discord</div>
+            </div>
+            <div class="social-card">
+                <div class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="social-name">Telegram</div>
+            </div>
+            <div class="social-card">
+                <div class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="social-name">Twitter</div>
+            </div>
+            <div class="social-card">
+                <div class="social-icon">
+                    <i class="fab fa-reddit"></i>
+                </div>
+                <div class="social-name">Reddit</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">HELLDIVERS COIN</div>
+        <p class="footer-text">HELLDIVERS Coin (HDC) is the community token of Super Earth, designed to support planetary defense, reward brave Helldivers, and strengthen the alliance between US and Chinese players. This is not an official token but a community-driven initiative.</p>
+        <div class="copyright">
+            &copy; 2023 Super Earth Defense Command. Fight for Democracy! Fight for Freedom!
+        </div>
+    </footer>
+
+    <script>
+        // Countdown logic
+        function updateCountdown() {
+            const now = new Date();
+            const nextAttack = new Date();
+            
+            // Set next attack to 3 days from now
+            nextAttack.setDate(now.getDate() + 3);
+            nextAttack.setHours(19, 0, 0, 0); // 7 PM
+            
+            const diff = nextAttack - now;
+            
+            if (diff <= 0) {
+                // Reset countdown if time has passed
+                nextAttack.setDate(nextAttack.getDate() + 3);
+                return updateCountdown();
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Initialize and update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Dynamic defense status updates
+        function updateDefenseStatus() {
+            const nyBar = document.querySelector('.ny .defense-fill');
+            const shBar = document.querySelector('.sh .defense-fill');
+            
+            // Simulate changing defense status
+            const nyWidth = 78 + Math.random() * 4 - 2;
+            const shWidth = 82 + Math.random() * 4 - 2;
+            
+            nyBar.style.width = Math.max(50, Math.min(95, nyWidth)) + '%';
+            shBar.style.width = Math.max(50, Math.min(95, shWidth)) + '%';
+            
+            // Update text
+            document.querySelector('.ny strong').textContent = Math.round(nyWidth) + '%';
+            document.querySelector('.sh strong').textContent = Math.round(shWidth) + '%';
+        }
+        
+        // Update defense status every 30 seconds
+        setInterval(updateDefenseStatus, 30000);
+    </script>
+</body>
+</html>
