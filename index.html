@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLDIVERS Coin | Super Earth Defense Token</title>
+    <title>United Defense | Super Shanghai Last Stand</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -18,6 +20,9 @@
             color: #e0e0e0;
             overflow-x: hidden;
             position: relative;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            line-height: 1.6;
         }
         
         body::before {
@@ -27,7 +32,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://i.imgur.com/2xrUyfP.png') center/cover no-repeat;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.1) 0%, transparent 25%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230c1a2d"/><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%23ff8c00" stroke-width="0.5" fill="none"/></svg>');
             opacity: 0.05;
             z-index: -1;
         }
@@ -43,6 +50,7 @@
             z-index: 100;
             border-bottom: 2px solid #ff8c00;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
         
         .logo {
@@ -54,6 +62,13 @@
         .logo-icon {
             font-size: 2.5rem;
             color: #ff8c00;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .logo-text {
@@ -64,6 +79,8 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
         
         .nav-links {
@@ -79,6 +96,8 @@
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .nav-links a:hover {
@@ -117,13 +136,33 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'Orbitron', sans-serif;
+            line-height: 1.2;
         }
         
         .hero p {
             font-size: 1.8rem;
-            max-width: 800px;
+            max-width: 900px;
             margin-bottom: 2rem;
             line-height: 1.6;
+        }
+        
+        .mission-statement {
+            background: rgba(255, 140, 0, 0.15);
+            border: 1px solid #ff8c00;
+            border-radius: 15px;
+            padding: 1.5rem 2.5rem;
+            margin: 2rem 0;
+            max-width: 900px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .mission-statement p {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
         }
         
         .countdown {
@@ -145,6 +184,7 @@
             font-size: 2.5rem;
             font-weight: 800;
             color: #ffd700;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .countdown-label {
@@ -169,11 +209,13 @@
             letter-spacing: 1px;
             text-decoration: none;
             display: inline-block;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+            background: linear-gradient(to right, #ff6a00, #ff8c00);
         }
         
         .earth-section {
@@ -187,169 +229,308 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 3rem;
             color: #ff8c00;
             position: relative;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
         }
         
         .section-title::after {
             content: "";
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
+            width: 150px;
+            height: 4px;
             background: linear-gradient(to right, #ff8c00, #ffd700);
         }
         
-        .war-status {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-        
-        .city-card {
+        .unity-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 3rem auto;
             background: rgba(20, 40, 70, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
-            width: 300px;
-            border: 2px solid;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s ease;
-        }
-        
-        .city-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .city-card.ny {
-            border-color: #1e90ff;
-        }
-        
-        .city-card.sh {
-            border-color: #ff4500;
-        }
-        
-        .city-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .ny .city-icon {
-            color: #1e90ff;
-        }
-        
-        .sh .city-icon {
-            color: #ff4500;
-        }
-        
-        .city-name {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .defense-bar {
-            height: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            overflow: hidden;
-        }
-        
-        .defense-fill {
-            height: 100%;
-            border-radius: 10px;
-        }
-        
-        .ny .defense-fill {
-            background: linear-gradient(to right, #1e90ff, #00bfff);
-            width: 78%;
-        }
-        
-        .sh .defense-fill {
-            background: linear-gradient(to right, #ff4500, #ff8c00);
-            width: 82%;
-        }
-        
-        .token-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .token-image {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .coin {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #ff8c00 0%, #ffd700 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 30px rgba(255, 140, 0, 0.7);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid #ff8c00;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             position: relative;
             overflow: hidden;
-            animation: rotate 20s linear infinite;
         }
         
-        .coin::before {
-            content: "HDC";
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: rgba(0, 0, 0, 0.2);
+        .unity-section::before {
+            content: "";
             position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff8c00" opacity="0.3"/></svg>');
+            opacity: 0.1;
+            z-index: 0;
         }
         
-        .coin::after {
+        .unity-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .unity-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .unity-text h3 {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .unity-text p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .unity-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .unity-stat {
+            background: rgba(30, 50, 80, 0.6);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .unity-stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .unity-stat-label {
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+        
+        .unity-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 400px;
+        }
+        
+        .globe-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, #1a3a5f, #0c1a2d);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .globe::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 80%);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 A40 40 0 1 0 50 90 A40 40 0 1 0 50 10 Z" fill="none" stroke="%231a3a5f" stroke-width="1"/></svg>');
+            background-size: cover;
         }
         
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .shanghai-marker {
+            position: absolute;
+            top: 65%;
+            left: 75%;
+            width: 20px;
+            height: 20px;
+            background: #ff4500;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ff4500;
+            animation: pulse 2s infinite;
         }
         
-        .token-details {
-            flex: 1;
-            min-width: 300px;
+        .europe-marker {
+            position: absolute;
+            top: 30%;
+            left: 48%;
+            width: 15px;
+            height: 15px;
+            background: #1e90ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #1e90ff;
+            animation: pulse 2s infinite;
+        }
+        
+        .usa-marker {
+            position: absolute;
+            top: 40%;
+            left: 22%;
+            width: 15px;
+            height: 15px;
+            background: #1e90ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #1e90ff;
+            animation: pulse 2s infinite;
+        }
+        
+        .connection-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .connection-line::before {
+            content: "";
+            position: absolute;
+            top: 30%;
+            left: 48%;
+            bottom: 35%;
+            right: 25%;
+            border: 1px dashed #ff8c00;
+            border-radius: 50%;
+            transform: rotate(-30deg);
+            opacity: 0.7;
+        }
+        
+        .last-stand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+        
+        .shanghai-banner {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1535332371349-a5d229f49cb5?q=80&w=1000') center/cover;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 3px solid #ff4500;
+        }
+        
+        .banner-text {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+            z-index: 2;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .defender-quotes {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .quote-card {
+            background: rgba(30, 50, 80, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            position: relative;
             text-align: left;
         }
         
-        .token-specs {
-            background: rgba(20, 40, 70, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 140, 0, 0.3);
+        .quote-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: rgba(255, 140, 0, 0.3);
+            font-family: serif;
         }
         
-        .spec-item {
+        .quote-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .quote-author {
             display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            align-items: center;
+            gap: 10px;
         }
         
-        .spec-item:last-child {
-            border-bottom: none;
+        .author-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .usa-flag {
+            background: linear-gradient(to bottom, 
+                #b22234 33%, 
+                white 33%, white 66%, 
+                #b22234 66%);
+            position: relative;
+        }
+        
+        .usa-flag::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 54%;
+            background: #3c3b6e;
+        }
+        
+        .eu-flag {
+            background: #003399;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .eu-flag::before {
+            content: "★";
+            color: #FFCC00;
+            font-size: 14px;
         }
         
         .community {
@@ -408,12 +589,14 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .footer-text {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto 2rem;
             line-height: 1.6;
+            font-size: 1.1rem;
         }
         
         .copyright {
@@ -422,17 +605,40 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
+        @media (max-width: 1100px) {
+            .unity-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
             .hero p {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                gap: 0.8rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
             }
             
             .countdown {
-                gap: 0.8rem;
+                gap: 0.5rem;
             }
             
             .countdown-item {
@@ -444,12 +650,9 @@
                 font-size: 1.8rem;
             }
             
-            .war-status {
-                gap: 1.5rem;
-            }
-            
-            .token-info {
-                flex-direction: column;
+            .globe-container {
+                width: 250px;
+                height: 250px;
             }
         }
     </style>
@@ -461,20 +664,25 @@
             <div class="logo-icon">
                 <i class="fas fa-globe-americas"></i>
             </div>
-            <div class="logo-text">HELLDIVERS COIN</div>
+            <div class="logo-text">UNITED DEFENSE</div>
         </div>
         <nav class="nav-links">
-            <a href="#about">About Token</a>
-            <a href="#community">Join Community</a>
-            <a href="#war">War Status</a>
-            <a href="https://pump.fun/board" target="_blank">Buy Now</a>
+            <a href="#unity">Global Unity</a>
+            <a href="#shanghai">Shanghai Stand</a>
+            <a href="#community">Join Us</a>
+            <a href="https://pump.fun/board" target="_blank">SUPPORT NOW</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>DEFEND SUPER EARTH!</h1>
-        <p>The Illuminate invasion has left only Super New York and Super Shanghai standing. US and Chinese players unite to launch HELLDIVERS Coin (HDC) - the ultimate defense token for Earth's survival!</p>
+        <h1>EAST AND WEST UNITED</h1>
+        <p>As Super Shanghai stands alone against the Illuminate onslaught, the world unites like never before</p>
+        
+        <div class="mission-statement">
+            <p>"Borders dissolve when humanity faces extinction. From London to Los Angeles, we stand with Shanghai - for in its survival lies our common future."</p>
+            <p>- Commander Sarah Johnson, EU Defense Forces</p>
+        </div>
         
         <div class="countdown">
             <div class="countdown-item">
@@ -496,80 +704,105 @@
         </div>
         
         <p>Time until next Illuminate assault</p>
-        <a href="https://pump.fun/board" class="cta-button" target="_blank">JOIN THE DEFENSE</a>
+        <a href="https://pump.fun/board" class="cta-button" target="_blank">CONTRIBUTE TO DEFENSE</a>
     </section>
 
-    <!-- War Status -->
-    <section class="earth-section" id="war">
-        <h2 class="section-title">SUPER EARTH DEFENSE STATUS</h2>
-        <div class="war-status">
-            <div class="city-card ny">
-                <div class="city-icon">
-                    <i class="fas fa-university"></i>
+    <!-- Global Unity Section -->
+    <section class="earth-section" id="unity">
+        <h2 class="section-title">A PLANET UNITED</h2>
+        <p>Former rivals now stand shoulder-to-shoulder in humanity's darkest hour</p>
+        
+        <div class="unity-section">
+            <div class="unity-content">
+                <div class="unity-text">
+                    <h3>EUROPEAN & AMERICAN REINFORCEMENTS</h3>
+                    <p>When the call came from Shanghai, the response was immediate and overwhelming. Within 72 hours, over 1.2 million European and American Helldivers deployed to reinforce the last human stronghold.</p>
+                    <p>Differences in language, culture, and history mean nothing when the survival of our species is at stake. In the trenches of Shanghai, a new global identity is being forged - that of Earth Defenders.</p>
+                    
+                    <div class="unity-stats">
+                        <div class="unity-stat">
+                            <div class="unity-stat-value">78%</div>
+                            <div class="unity-stat-label">of EU forces now in Shanghai</div>
+                        </div>
+                        <div class="unity-stat">
+                            <div class="unity-stat-value">64%</div>
+                            <div class="unity-stat-label">of US forces now in Shanghai</div>
+                        </div>
+                        <div class="unity-stat">
+                            <div class="unity-stat-value">$2.4B</div>
+                            <div class="unity-stat-label">Western military aid</div>
+                        </div>
+                        <div class="unity-stat">
+                            <div class="unity-stat-value">320K</div>
+                            <div class="unity-stat-label">Shared tech innovations</div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="city-name">SUPER NEW YORK</h3>
-                <p>US Player Stronghold</p>
-                <div class="defense-bar">
-                    <div class="defense-fill"></div>
+                
+                <div class="unity-image">
+                    <div class="globe-container">
+                        <div class="globe">
+                            <div class="connection-line"></div>
+                            <div class="shanghai-marker"></div>
+                            <div class="europe-marker"></div>
+                            <div class="usa-marker"></div>
+                        </div>
+                    </div>
                 </div>
-                <p>Defense Status: <strong>78%</strong></p>
-                <p>Commander: John "Liberty" Davis</p>
-            </div>
-            
-            <div class="city-card sh">
-                <div class="city-icon">
-                    <i class="fas fa-dragon"></i>
-                </div>
-                <h3 class="city-name">SUPER SHANGHAI</h3>
-                <p>Chinese Player Stronghold</p>
-                <div class="defense-bar">
-                    <div class="defense-fill"></div>
-                </div>
-                <p>Defense Status: <strong>82%</strong></p>
-                <p>Commander: Zhang "Dragon" Wei</p>
             </div>
         </div>
+    </section>
+
+    <!-- Shanghai Last Stand -->
+    <section class="earth-section" id="shanghai">
+        <h2 class="section-title">SHANGHAI: HUMANITY'S BULWARK</h2>
+        <p>The last fortress standing against the Illuminate invasion</p>
         
-        <div class="token-info" id="about">
-            <div class="token-image">
-                <div class="coin"></div>
+        <div class="last-stand">
+            <div class="shanghai-banner">
+                <div class="banner-text">TOGETHER WE HOLD</div>
             </div>
-            <div class="token-details">
-                <h2 class="section-title">HELLDIVERS COIN (HDC)</h2>
-                <div class="token-specs">
-                    <div class="spec-item">
-                        <span>Token Name:</span>
-                        <span>HELLDIVERS Coin</span>
+            
+            <div class="defender-quotes">
+                <div class="quote-card">
+                    <div class="quote-text">
+                        "I came from Texas to fight alongside my Chinese brothers. There's no East or West here - only those who stand for Earth and those who would destroy it."
                     </div>
-                    <div class="spec-item">
-                        <span>Token Symbol:</span>
-                        <span>HDC</span>
+                    <div class="quote-author">
+                        <div class="author-flag usa-flag"></div>
+                        <div>Sergeant Mike O'Reilly, USMC</div>
                     </div>
-                    <div class="spec-item">
-                        <span>Total Supply:</span>
-                        <span>10,000,000,000</span>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        "When Paris fell, Shanghai took our refugees without question. Now we return the favor with every bullet, every shield generator, every ounce of strength."
                     </div>
-                    <div class="spec-item">
-                        <span>Blockchain:</span>
-                        <span>sol</span>
+                    <div class="quote-author">
+                        <div class="author-flag eu-flag"></div>
+                        <div>Captain Elise Dubois, EU Tactical Division</div>
                     </div>
-                    <div class="spec-item">
-                        <span>Token Type:</span>
-                        <span>Community Defense Token</span>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        "In this crucible, we've discovered what truly matters. Not our flags, but our shared humanity. Shanghai holds not just for China, but for all of us."
                     </div>
-                    <div class="spec-item">
-                        <span>Primary Use:</span>
-                        <span>Defense upgrades, War supplies, Player rewards</span>
+                    <div class="quote-author">
+                        <div class="author-flag" style="background: #de2910;"></div>
+                        <div>Commander Zhang "Dragon" Wei</div>
                     </div>
                 </div>
             </div>
+            
+            <a href="https://pump.fun/board" class="cta-button" target="_blank">SUPPORT THE DEFENDERS</a>
         </div>
     </section>
 
     <!-- Community -->
     <section class="community" id="community">
-        <h2 class="section-title">JOIN THE DEFENSE COMMUNITY</h2>
-        <p>US and Chinese players united against the Illuminate threat! Join our community for the latest intel and HDC rewards</p>
+        <h2 class="section-title">JOIN THE GLOBAL RESISTANCE</h2>
+        <p>Connect with defenders worldwide and coordinate our survival</p>
         
         <div class="social-links">
             <div class="social-card">
@@ -601,10 +834,10 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo">HELLDIVERS COIN</div>
-        <p class="footer-text">HELLDIVERS Coin (HDC) is the community token of Super Earth, designed to support planetary defense, reward brave Helldivers, and strengthen the alliance between US and Chinese players. This is not an official token but a community-driven initiative.</p>
+        <div class="footer-logo">UNITED EARTH DEFENSE INITIATIVE</div>
+        <p class="footer-text">In the face of extinction, humanity has rediscovered its unity. The defense of Super Shanghai is no longer a Chinese struggle - it is the struggle of every man, woman and child on Earth. We contribute not as nations, but as a species fighting for survival.</p>
         <div class="copyright">
-            &copy; 2023 Super Earth Defense Command. Fight for Democracy! Fight for Freedom!
+            &copy; 2023 Global Defense Command. Our divisions forgotten, our purpose united: For Earth, For All.
         </div>
     </footer>
 
@@ -644,32 +877,26 @@
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
-        // Dynamic defense status updates
-        function updateDefenseStatus() {
-            const nyBar = document.querySelector('.ny .defense-fill');
-            const shBar = document.querySelector('.sh .defense-fill');
-            
-            // Simulate changing defense status
-            const nyWidth = 78 + Math.random() * 4 - 2;
-            const shWidth = 82 + Math.random() * 4 - 2;
-            
-            nyBar.style.width = Math.max(50, Math.min(95, nyWidth)) + '%';
-            shBar.style.width = Math.max(50, Math.min(95, shWidth)) + '%';
-            
-            // Update text
-            document.querySelector('.ny strong').textContent = Math.round(nyWidth) + '%';
-            document.querySelector('.sh strong').textContent = Math.round(shWidth) + '%';
+        // Globe animation
+        const globe = document.querySelector('.globe');
+        let rotation = 0;
+        
+        function rotateGlobe() {
+            rotation += 0.2;
+            globe.style.transform = `rotate(${rotation}deg)`;
+            requestAnimationFrame(rotateGlobe);
         }
         
-        // Update defense status every 30 seconds
-        setInterval(updateDefenseStatus, 30000);
+        rotateGlobe();
     </script>
 </body>
 </html>
